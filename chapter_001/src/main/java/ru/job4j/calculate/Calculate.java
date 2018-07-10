@@ -9,14 +9,24 @@
 package ru.job4j.calculate;
 
 /**
-* Class Класс для выведения на экран "Hello World"
-* @since 08.07.2018
+* Main.	
+* @param args - args.
 */
 public class Calculate {
+
 /**
 * @param main выводит на экран "Hello World"
 */
 	public static void main(String[] args) {
 		System.out.println("Hello World");
 	}
+	
+/**
+* Method echo.
+* @param name Egor Reutov.
+* @return Echo plus your name.
+*/
+public String echo(String name) {
+    return "Echo, echo, echo : " + name;
+}	
 }
