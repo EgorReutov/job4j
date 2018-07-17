@@ -27,4 +27,14 @@ public class PaintTest {
                 )
         );
     }
+    @Test
+    public void when5x4() {
+        Board board5x4 = new Board();
+        String rsl = board5x4.paint(5, 4);
+        String ln = System.lineSeparator();
+        assertThat(rsl, is(
+                String.format("X X X%s X X %sX X X%s X X %s", ln, ln, ln, ln)
+                )
+        );
+    }
 }
