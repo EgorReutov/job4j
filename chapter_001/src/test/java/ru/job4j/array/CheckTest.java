@@ -20,4 +20,11 @@ public class CheckTest {
         boolean result = check.mono(input);
         assertThat(result, is(false));
     }
+    @Test
+    public void whenThenFalse() {
+        Check check = new Check();
+        boolean[] input = new boolean[] {true, false, true, false};
+        boolean result = check.mono(input);
+        assertThat(result, is(false));
+    }
 }
