@@ -14,7 +14,7 @@ public class ArrayDuplicateTest {
         assertThat(result, is(out));
     }
     @Test
-    public void mono() {
+    public void whenOnlyOne() {
         String[] input = {"1", "1", "1", "1", "1"};
         String[] out = {"1"};
         ArrayDuplicate duplicate = new ArrayDuplicate();
