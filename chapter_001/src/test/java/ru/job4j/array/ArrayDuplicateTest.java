@@ -13,6 +13,14 @@ public class ArrayDuplicateTest {
         String[] result = duplicate.remove(input);
         assertThat(result, is(out));
     }
+    @Test
+    public void mono() {
+        String[] input = {"1", "1", "1", "1", "1"};
+        String[] out = {"1"};
+        ArrayDuplicate duplicate = new ArrayDuplicate();
+        String[] result = duplicate.remove(input);
+        assertThat(result, is(out));
+    }
 }
 
 
