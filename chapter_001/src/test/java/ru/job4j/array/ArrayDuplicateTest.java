@@ -11,7 +11,7 @@ public class ArrayDuplicateTest {
         String[] out = {"Привет", "Мир", "Супер"};
         ArrayDuplicate duplicate = new ArrayDuplicate();
         String[] result = duplicate.remove(input);
-        assertThat(result,is(out));
+        assertThat(result, is(out));
     }
 }
 

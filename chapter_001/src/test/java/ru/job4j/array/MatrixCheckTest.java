@@ -9,7 +9,7 @@ public class MatrixCheckTest {
     public void whenDataMonoByTrueThenTrue() {
         MatrixCheck check = new MatrixCheck();
         boolean[][] input = new boolean[][] {
-                {true, true, true},
+                {true, false, true},
                 {false, true, true},
                 {true, false, true}
         };
