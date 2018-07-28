@@ -1,9 +1,9 @@
 package ru.job4j.array;
 
 public class TwoArrays {
-    public static int[] first (int[] arrayOne, int[] arrayTwo) {
+    public int[] first (int[] arrayOne, int[] arrayTwo) {
         int[] result = new int[arrayOne.length + arrayTwo.length];
-        for (int index:first(arrayOne, arrayTwo)) {
+        for (int index: first(arrayOne, arrayTwo)) {
             if (arrayOne[index] < arrayTwo[index]) {
                 result[index] = arrayOne[index];
                 result[index + 1] = arrayTwo[index];
