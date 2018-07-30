@@ -6,7 +6,6 @@ public class Logic3T {
     public Logic3T(Figure3T[][] table) {
         this.table = table;
     }
-
     public boolean isWinnerX() {
         boolean result = false;
         for (int index = 0; index < table.length - 1; index++) {
@@ -20,7 +19,7 @@ public class Logic3T {
             }
             for (int i = 0; i < table.length; i++) {
                 for (int j = 0; j < table.length; j++) {
-                    if (table[i][j] == table[i][index + 1]){
+                    if (table[i][j] == table[i][index + 1]) {
                         result = true;
                         break;
                     }
@@ -29,7 +28,6 @@ public class Logic3T {
         }
         return result;
     }
-
     public boolean isWinnerO() {
         boolean result = false;
         for (int index = 0; index < table.length - 1; index++) {
@@ -43,7 +41,7 @@ public class Logic3T {
             }
             for (int i = 0; i < table.length; i++) {
                 for (int j = 0; j < table.length; j++) {
-                    if (table[i][j] == table[i][index + 1]){
+                    if (table[i][j] == table[i][index + 1]) {
                         result = true;
                         break;
                     }
@@ -52,7 +50,6 @@ public class Logic3T {
         }
         return result;
     }
-
     public boolean hasGap() {
         boolean result = false;
         for (int i = 0; i < table.length; i++) {
