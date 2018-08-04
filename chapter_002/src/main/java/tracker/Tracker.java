@@ -30,16 +30,14 @@ public class Tracker {
         for (int index = 0; index < position; index++) {
             if (this.items[index].getId().equals(id)) {
                 System.arraycopy(this.items, index + 1, items, index, position - index - 1);
+                position--;
+                break;
             }
         }
     }
 
     public Item[] findAll() {
-        Item[] result = new Item[position];
-        for (int index = 0; index < this.position; index++) {
-            result[index] = this.items[index];
-        }
-        return result;
+        return Arrays.copyOf(this.items, this.position);
     }
 
     public Item[] findByName(String key) {
