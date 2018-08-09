@@ -112,11 +112,15 @@ public class StartUI {
         System.out.println("--------- Поиск заявки по id ---------");
         String id = this.input.ask("Введите id заявки: ");
         Item result = tracker.findById(id);
-        System.out.println("--------- Заявка найдена ---------");
-        System.out.format("%16s%16s%16s", "Имя заявки", "Описание", "ID заявки");
-        System.out.println();
-        System.out.format("%16s%16s%16s", result.getName(), result.getDesc(), result.getId());
-        System.out.println();
+        if (result == null) {
+            System.out.println("--------- Такой заявки не существует ---------");
+        } else {
+            System.out.println("--------- Заявка найдена ---------");
+            System.out.format("%16s%16s%16s", "Имя заявки", "Описание", "ID заявки");
+            System.out.println();
+            System.out.format("%16s%16s%16s", result.getName(), result.getDesc(), result.getId());
+            System.out.println();
+        }
     }
 
     /**
