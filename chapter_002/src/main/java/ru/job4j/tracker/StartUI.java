@@ -73,8 +73,13 @@ public class StartUI {
      * Метод реализует выведение на экран всех заявок.
      */
     private void showAll() {
-        System.out.println("------------ Все заявки --------------");
-        this.tracker.findAll();
+        System.out.println("--------- Все заявки ---------");
+        System.out.format("%16s%16s%16s", "Имя заявки", "Описание", "ID заявки");
+        System.out.println();
+        for (Item item : tracker.findAll()) {
+            System.out.format("%16s%16s%16s", item.getName(), item.getDesc(), item.getId());
+            System.out.println();
+        }
     }
 
     /**
@@ -97,6 +102,7 @@ public class StartUI {
         System.out.println("--------- Удаление заявки ---------");
         String id = this.input.ask("Введите id заявки: ");
         this.tracker.delete(id);
+        System.out.println("--------- Заявка id" + id + " удалена ---------");
     }
 
     /**
@@ -105,7 +111,12 @@ public class StartUI {
     public void findById() {
         System.out.println("--------- Поиск заявки по id ---------");
         String id = this.input.ask("Введите id заявки: ");
-        this.tracker.findById(id);
+        Item result = tracker.findById(id);
+        System.out.println("--------- Заявка найдена ---------");
+        System.out.format("%16s%16s%16s", "Имя заявки", "Описание", "ID заявки");
+        System.out.println();
+        System.out.format("%16s%16s%16s", result.getName(), result.getDesc(), result.getId());
+        System.out.println();
     }
 
     /**
@@ -115,7 +126,14 @@ public class StartUI {
     public void setFindByName() {
         System.out.println("--------- Поиск заявки по имени ---------");
         String name = this.input.ask("Введите имя заявки: ");
-        this.tracker.findByName(name);
+        Item[] result = tracker.findByName(name);
+        System.out.println("--------- Заявка найдена ---------");
+        System.out.format("%16s%16s%16s", "Имя заявки", "Описание", "ID заявки");
+        System.out.println();
+        for (Item item : result) {
+            System.out.format("%16s%16s%16s", item.getName(), item.getDesc(), item.getId());
+            System.out.println();
+        }
     }
 
 
