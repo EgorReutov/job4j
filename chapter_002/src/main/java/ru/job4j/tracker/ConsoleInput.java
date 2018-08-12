@@ -8,4 +8,8 @@ public class ConsoleInput implements Input {
     public String ask(String question) {
         return scanner.nextLine();
     }
+
+    public int ask(String question, List<Integer> range) {
+        return 0;
+    }
 }

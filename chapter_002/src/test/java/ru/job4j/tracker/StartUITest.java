@@ -15,7 +15,7 @@ public class StartUITest {
     }
 
     @Test
-    public void WhenEditItem() {
+    public void whenEditItem() {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("task1", "desc1"));
         Input input = new StubInput(new String[]{"2", item.getId(), "task2", "desc2", "6"});
