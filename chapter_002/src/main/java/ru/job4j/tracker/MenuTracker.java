@@ -2,6 +2,8 @@ package ru.job4j.tracker;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.LinkedBlockingDeque;
+
 
 public class MenuTracker {
 
@@ -101,7 +103,7 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Add new Item.";
+            return String.format("%d. %s", key, desc);
         }
     }
 
@@ -162,7 +164,7 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Item edit.";
+            return String.format("%d. %s", key, desc);
         }
     }
 
@@ -225,7 +227,7 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Item find";
+            return String.format("%d. %s", key, desc);
         }
     }
 
@@ -259,7 +261,7 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Item find";
+            return String.format("%d. %s", key, desc);
         }
     }
 
@@ -284,7 +286,7 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Exit";
+            return String.format("%d. %s", key, desc);
         }
     }
 }

@@ -9,7 +9,7 @@ public class ConsoleInput implements Input {
         return scanner.nextLine();
     }
 
-    public int ask(String question, List<Integer> range) {
+    public int ask(String question, int[] range) {
         return 0;
     }
 }
