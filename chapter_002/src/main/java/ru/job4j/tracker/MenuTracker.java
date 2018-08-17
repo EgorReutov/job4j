@@ -75,6 +75,13 @@ public class MenuTracker {
         }
     }
 
+    public void findKey() {
+        MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        List<Integer> range = new ArrayList<>();
+        for (int i = 0; i < menu.getActionsLentgh(); i++) {
+            range.add(i);
+        }
+    }
     public class AddAction implements UserAction {
         private int key;
         private String desc;
