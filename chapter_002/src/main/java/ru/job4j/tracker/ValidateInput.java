@@ -2,7 +2,7 @@ package ru.job4j.tracker;
 
 import java.util.List;
 
-public class ValidateInput extends ConsoleInput {
+public class ValidateInput implements Input {
 
     private final Input input;
 
@@ -20,7 +20,7 @@ public class ValidateInput extends ConsoleInput {
         int value = -1;
         do {
             try {
-                value = super.ask(question, range);
+                value = this.input.ask(question, range);
                 invalid = false;
             } catch (MenuOutException moe) {
                 System.out.println("Пожалуйста, выберите пунк из меню.");
