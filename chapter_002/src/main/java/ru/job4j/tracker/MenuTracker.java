@@ -46,7 +46,7 @@ public class MenuTracker {
      * Метод заполняет массив.
      */
     public void fillActions() {
-        this.actions.add(new AddAction(0, "Add program"));
+        this.actions.add(new AddAction(0, "Add item"));
         this.actions.add(new ShowItems(1, "Show all items"));
         this.actions.add(new MenuTracker.EditItem(2, "Edit item"));
         this.actions.add(new MenuTracker.DeleteItem(3, "Delete item"));
@@ -75,13 +75,14 @@ public class MenuTracker {
         }
     }
 
-    public void findKey() {
-        MenuTracker menu = new MenuTracker(this.input, this.tracker);
+    public List<Integer> findKey() {
         List<Integer> range = new ArrayList<>();
-        for (int i = 0; i < menu.getActionsLentgh(); i++) {
-            range.add(i);
+        for (UserAction action : actions) {
+            range.add(action.key());
         }
+        return range;
     }
+
     public class AddAction implements UserAction {
         private int key;
         private String desc;
