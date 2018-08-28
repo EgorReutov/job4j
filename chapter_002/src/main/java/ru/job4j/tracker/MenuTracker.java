@@ -142,7 +142,7 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Show all Items.";
+            return String.format("%d. %s", key, desc);
         }
     }
 
@@ -199,7 +199,7 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Item delete";
+            return String.format("%d. %s", key, desc);
         }
     }
 
