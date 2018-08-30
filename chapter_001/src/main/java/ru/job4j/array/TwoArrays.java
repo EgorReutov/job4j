@@ -7,21 +7,13 @@ public class TwoArrays {
         for (int k = 0; k < result.length; k++) {
 
             if (i > arrayOne.length - 1) {
-                int a = arrayTwo[j];
-                result[k] = a;
-                j++;
+                result[k] = arrayTwo[j++];
             } else if (j > arrayTwo.length - 1) {
-                int a = arrayOne[i];
-                result[k] = a;
-                i++;
+                result[k] = arrayOne[i++];
             } else if (arrayOne[i] < arrayTwo[j]) {
-                int a = arrayOne[i];
-                result[k] = a;
-                i++;
+                result[k] = arrayOne[i++];
             } else {
-                int b = arrayTwo[j];
-                result[k] = b;
-                j++;
+                result[k] = arrayTwo[j++];
             }
         }
         return result;
