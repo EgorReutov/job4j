@@ -2,7 +2,7 @@ package ru.job4j.tracker;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.LinkedBlockingDeque;
+
 
 
 public class MenuTracker {
@@ -75,14 +75,14 @@ public class MenuTracker {
         }
     }
 
-    public List<Integer> findKey() {
-        List<Integer> range = new ArrayList<>();
+/*   public List<Integer> findKey() {
+      List<Integer> range = new ArrayList<>();
         for (UserAction action : actions) {
             range.add(action.key());
         }
         return range;
     }
-
+*/
     public class AddAction extends BaseAction {
         public AddAction(int key, String name) {
             super(key, name);
@@ -144,6 +144,7 @@ public class MenuTracker {
             System.out.println("--------- Delete Item ---------");
             String id = input.ask("Provide id Item: ");
             tracker.delete(id);
+            System.out.println("Delete successfully");
         }
     }
 
@@ -196,7 +197,6 @@ public class MenuTracker {
 
         @Override
         public void execute(Input input, Tracker tracker) {
-            System.exit(0);
         }
     }
 }
