@@ -75,14 +75,6 @@ public class MenuTracker {
         }
     }
 
-/*   public List<Integer> findKey() {
-      List<Integer> range = new ArrayList<>();
-        for (UserAction action : actions) {
-            range.add(action.key());
-        }
-        return range;
-    }
-*/
     public class AddAction extends BaseAction {
         public AddAction(int key, String name) {
             super(key, name);
