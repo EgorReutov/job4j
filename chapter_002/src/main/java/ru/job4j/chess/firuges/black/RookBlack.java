@@ -1,5 +1,6 @@
 package ru.job4j.chess.firuges.black;
 
+import ru.job4j.chess.ImpossibleMoveException;
 import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.Figure;
 
@@ -23,6 +24,9 @@ public class RookBlack implements Figure {
 
     @Override
     public Cell[] way(Cell source, Cell dest) {
+        if (source.x != dest.x || source.y != dest.y) {
+            throw new ImpossibleMoveException("Нарушена логика фигуры - ферзь");
+        }
         return new Cell[] {dest};
     }
 
