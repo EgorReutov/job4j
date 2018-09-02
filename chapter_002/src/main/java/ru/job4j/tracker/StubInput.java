@@ -8,14 +8,13 @@ public class StubInput implements Input {
 
     public StubInput(String[] answers) {
         this.answers = answers;
-
     }
 
     public String ask(String question) {
         return answers[position++];
     }
 
-    public int ask(String question, List<Integer> range) {
+    public int ask(String question, List<Integer> range) throws MenuOutException {
         return Integer.valueOf(answers[position++]);
     }
 }
