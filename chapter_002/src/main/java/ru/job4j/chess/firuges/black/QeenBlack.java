@@ -24,7 +24,7 @@ public class QeenBlack implements Figure {
 
     @Override
     public Cell[] way(Cell source, Cell dest) {
-        if ((source.x != dest.x || source.y != dest.y) && (Math.abs(source.x - dest.x) != Math.abs(source.y - dest.y) || source.x == dest.x || source.y == dest.y) {
+        if ((source.x != dest.x || source.y != dest.y) && (Math.abs(source.x - dest.x) != Math.abs(source.y - dest.y) || source.x == dest.x || source.y == dest.y)) {
             throw new ImpossibleMoveException("Нарушена логика фигуры - королева");
         }
         return new Cell[] {dest};
