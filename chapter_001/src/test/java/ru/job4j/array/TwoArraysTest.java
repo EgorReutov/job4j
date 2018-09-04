@@ -6,7 +6,7 @@ import static org.junit.Assert.assertThat;
 
 public class TwoArraysTest {
     @Test
-    public void TestOne() {
+    public void testOne() {
         TwoArrays one = new TwoArrays();
         int[] first = new int[]{5, 10, 12};
         int[] second = new int[]{8, 9, 11};
@@ -16,7 +16,7 @@ public class TwoArraysTest {
     }
 
     @Test
-    public void TestTwo() {
+    public void testTwo() {
         TwoArrays one = new TwoArrays();
         int[] first = new int[]{};
         int[] second = new int[]{8, 9, 11};
@@ -26,7 +26,7 @@ public class TwoArraysTest {
     }
 
     @Test
-    public void TestThree() {
+    public void testThree() {
         TwoArrays one = new TwoArrays();
         int[] first = new int[]{};
         int[] second = new int[]{};
