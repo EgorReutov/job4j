@@ -23,9 +23,9 @@ public class KingBlack implements Figure {
     }
 
     @Override
-    public Cell[] way(Cell source, Cell dest)  throws ImpossibleMoveException {
-        if (Math.abs(source.x - dest.x) > 1 || Math.abs(source.y - dest.y) > 1){
-            throw new ImpossibleMoveException ("Нарушена логика фигуры - король");
+    public Cell[] way(Cell source, Cell dest) {
+        if (Math.abs(source.x - dest.x) > 1 || Math.abs(source.y - dest.y) > 1) {
+            throw new ImpossibleMoveException("Нарушена логика фигуры - король");
         }
         return new Cell[] {dest};
     }

@@ -24,20 +24,17 @@ public class BishopBlack implements Figure {
     }
 
     @Override
-    public Cell[] way(Cell source, Cell dest) throws ImpossibleMoveException {
+    public Cell[] way(Cell source, Cell dest) {
         int wayX = Math.abs(source.x - dest.x);
         int wayY = Math.abs(source.y - dest.y);
-        if (wayX != wayY || source.x == dest.x || source.y == dest.y) {
-            throw new ImpossibleMoveException ("Нарушена логика фигуры - слон");
+        if (wayX != wayY) {
+            throw new ImpossibleMoveException("Нарушена логика фигуры - слон");
         }
-
         Cell[] result = new Cell[Math.abs(wayX)];
-        int stepX = wayX > 0 ? -1 : 1;
-        int stepY = wayY > 0 ? -1 : 1;
-        for (int index = 0; index < result.length; index++) {
-            int i = source.x + stepX * (index + 1);
-            int j = source.y + stepY * (index + 1);
-            result[index] = Cell.values()[i * 8 + j];
+        int stepX = Integer.compare(dest.x, source.x);
+        int stepY = Integer.compare(dest.y, source.y);
+        for (int index = 0; index != wayX; index++) {
+            result[index] = Cell.find(source.x + stepX * (index + 1), source.y + stepY * (index + 1));
         }
         return result;
     }

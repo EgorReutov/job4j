@@ -24,7 +24,8 @@ public class KnightBlack implements Figure {
 
     @Override
     public Cell[] way(Cell source, Cell dest) {
-        if ((source.x + 1 != dest.x && source.y + 2 != dest.y) || (source.x + 2 != dest.x && source.y + 1 != dest.y)) {
+        if ((source.x + 1 != dest.x && source.y + 2 != dest.y) || (source.x + 2 != dest.x
+                && source.y + 1 != dest.y)) {
             throw new ImpossibleMoveException("Нарушена логика фигуры - конь");
         }
         return new Cell[] {dest};
