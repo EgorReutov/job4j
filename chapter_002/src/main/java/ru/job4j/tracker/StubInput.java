@@ -14,7 +14,18 @@ public class StubInput implements Input {
         return answers[position++];
     }
 
-    public int ask(String question, List<Integer> range) throws MenuOutException {
-        return Integer.valueOf(answers[position++]);
+    public int ask(String question, List<Integer> range) {
+        int key = Integer.valueOf(this.ask(question));
+        boolean exist = false;
+        for (int value : range) {
+            if (value == key) {
+                exist = true;
+                break;
+            }
+        }
+        if (!exist) {
+            throw new MenuOutException("Введите корректные данные");
+        }
+        return key;
     }
 }
