@@ -22,5 +22,4 @@ public class StartUITest {
         new StartUI(input, tracker).init();
         assertThat(tracker.findById(item.getId()).getName(), is("task2"));
     }
-
 }
