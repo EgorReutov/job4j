@@ -18,19 +18,32 @@ public class Logic {
         this.figures[this.index++] = figure;
     }
 
-    public boolean move(Cell source, Cell dest) throws ImpossibleMoveException, OccupiedWayException,
-            FigureNotFoundException {
+    public boolean move(Cell source, Cell dest) throws OccupiedWayException,
+            FigureNotFoundException, ImpossibleMoveException {
         boolean rst = false;
-        int index = this.findBy(source);
-        if (index != -1) {
+        try {
+            int index = this.findBy(source);
             Cell[] steps = this.figures[index].way(source, dest);
-            if (steps.length > 0 && steps[steps.length - 1].equals(dest)) {
-                rst = true;
-                this.figures[index] = this.figures[index].copy(dest);
+            for (Cell step : steps) {
+                for (Figure figure : figures) {
+                    if (figure.position().equals(step)) {
+                        throw new OccupiedWayException("Препятствие");
+                    }
+                }
             }
+            this.figures[index] = this.figures[index].copy(dest);
+            rst = true;
+
+        } catch (ImpossibleMoveException ime) {
+            System.out.println("Ошибка движения");
+        } catch (OccupiedWayException owe) {
+            System.out.println("Клетки заняты");
+        } catch (FigureNotFoundException fnfe) {
+            System.out.println("Фигура не найдена");
         }
         return rst;
     }
+
 
     public void clean() {
         for (int position = 0; position != this.figures.length; position++) {
