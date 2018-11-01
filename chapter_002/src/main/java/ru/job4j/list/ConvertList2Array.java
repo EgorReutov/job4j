@@ -22,8 +22,8 @@ public class ConvertList2Array {
         }
 
         if (list.size() % rows != 0) {
-            for (int a = 0; a != cells - j; a++) {
-                array[cells - 1][j++] = 0;
+            for (int a = 1; a != cells - j; a++) {
+                array[cells - 1][j + a] = 0;
             }
         }
 
