@@ -1,5 +1,7 @@
 package ru.job4j.list;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ConvertList2Array {
@@ -26,9 +28,17 @@ public class ConvertList2Array {
                 array[cells - 1][j + a] = 0;
             }
         }
-
-
         return array;
+    }
+
+    public List<Integer> convert (List<int[]> list) {
+        List<Integer> result = new ArrayList<>();
+        for (int[] i : list) {
+            for (int j : i) {
+                result.add(j);
+            }
+        }
+        return result;
     }
 }
 
