@@ -21,7 +21,7 @@ public class StartUI {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
         List<Integer> range = new ArrayList<>();
         for (int index = 0; index < 7; index++) {
-            range.add(index++);
+            range.add(index);
         }
         menu.fillActions();
         do {

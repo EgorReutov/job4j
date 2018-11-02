@@ -2,9 +2,37 @@ package ru.job4j.tracker;
 
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
+
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
+
 public class StartUITest {
+    private String ls = System.lineSeparator();
+    private StringBuilder menu =
+            new StringBuilder("0 : Add new Item.").append(ls)
+                    .append("1 : Show all items").append(ls)
+                    .append("2 : Edit item").append(ls)
+                    .append("3 : Delete item").append(ls)
+                    .append("4 : Find item by Id").append(ls)
+                    .append("5 : Find items by name").append(ls)
+                    .append("6. Exit Program").append(ls);
+    ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+    @Before
+    public void loadOutput() {
+        System.setOut(new PrintStream(this.out));
+    }
+
+    @After
+    public void backOutput() {
+        System.out.println("execute after method");
+    }
 
     @Test
     public void whenAddItem() {
