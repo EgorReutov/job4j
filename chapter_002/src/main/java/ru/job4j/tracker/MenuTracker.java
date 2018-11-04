@@ -171,7 +171,7 @@ public class MenuTracker {
         public void execute(Input input, Tracker tracker) {
             System.out.println("--------- Find Item by name ---------");
             String name = input.ask("Provide Item name: ");
-            Item[] result = tracker.findByName(name);
+            List<Item> result = tracker.findByName(name);
             System.out.println("--------- Item find ---------");
             System.out.format("%16s%16s%16s", "Item name", "Description", "Item id");
             System.out.println();
