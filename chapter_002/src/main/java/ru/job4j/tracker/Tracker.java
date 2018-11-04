@@ -18,12 +18,19 @@ public class Tracker {
         return item;
     }
 
-    public void replace(String id, Item item) {
-        for (Item index : items) {
-            if (index.getId().equals(id)) {
-                item.setId(id);
+    public boolean replace(String id, Item item) {
+        boolean result = false;
+        if (this.findById(id) != null) {
+            for (int index = 0; index != items.size(); index++) {
+                if (items.get(index).getId().equals(id)) {
+                    item.setId(id);
+                    items.set(index, item);
+                    result = true;
+                    break;
+                }
             }
         }
+        return result;
     }
 
     public void delete(String id) {
