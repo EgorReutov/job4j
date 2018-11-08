@@ -22,7 +22,7 @@ public class SortUserTest {
         usersSort.addAll(sortUsers.sort(usersNoSort));
         Set<User> expect = new TreeSet<>();
         expect.addAll(Arrays.asList(egor, alina, petr));
-        assertThat(usersSort,is(expect));
+        assertThat(usersSort, is(expect));
     }
 
     @Test
@@ -51,7 +51,7 @@ public class SortUserTest {
         SortUser sortUsers = new SortUser();
         List<User> usersNoSort = new ArrayList<>();
         User alina = new User("alina", 21);
-        User alinaSecond = new User("alina" , 15);
+        User alinaSecond = new User("alina", 15);
         User petr = new User("petr", 31);
         User yan = new User("yan", 10);
         User ivan = new User("ivan", 25);
@@ -61,7 +61,7 @@ public class SortUserTest {
         usersSort.addAll(sortUsers.sortByAllFields(usersNoSort));
         List<User> expect = new ArrayList<>();
         expect.add(0, alinaSecond);
-        expect.add(1 , alina);
+        expect.add(1, alina);
         expect.add(2, ivan);
         expect.add(3, petr);
         expect.add(4, vladimir);

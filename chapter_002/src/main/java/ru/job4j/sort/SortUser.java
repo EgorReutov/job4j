@@ -8,14 +8,14 @@ public class SortUser {
         return result;
     }
 
-    public List<User> sortNameLength (List<User> list) {
+    public List<User> sortNameLength(List<User> list) {
         List<User> result = new ArrayList<>();
         Collections.sort(list, User.nameLengthComparator);
         result.addAll(list);
         return result;
     }
 
-    public List<User> sortByAllFields (List<User> list) {
+    public List<User> sortByAllFields(List<User> list) {
         list.sort(new Comparator<User>() {
 
             @Override

@@ -2,7 +2,7 @@ package ru.job4j.coffeemachine;
 
 import java.util.ArrayList;
 
-public class СoffeeMachine {
+public class CoffeeMachine {
     public ArrayList changes(int value, int price) {
         int money = value - price;
         ArrayList result = new ArrayList();

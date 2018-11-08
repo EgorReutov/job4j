@@ -13,7 +13,7 @@ public class ListCompare implements Comparator<String> {
             if (left.charAt(index) != right.charAt(index)) {
                 return left.charAt(index) - right.charAt(index);
             }
-            index ++;
+            index++;
         }
         return left.length() - right.length();
     }
