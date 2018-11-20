@@ -4,8 +4,7 @@ import java.util.*;
 
 public class SortUser {
     public Set<User> sort(List<User> list) {
-        Set<User> result = new TreeSet<>(list);
-        return result;
+        return new TreeSet<>(list);
     }
 
     public List<User> sortNameLength(List<User> list) {
