@@ -14,12 +14,12 @@ public class IteratorForArray implements Iterator {
     }
 
     @Override
-    public boolean hasNext () {
+    public boolean hasNext() {
         return indexJ != array.length;
     }
 
     @Override
-    public Object next () {
+    public Object next() {
         if (!this.hasNext()) {
             throw new NoSuchElementException();
         }
