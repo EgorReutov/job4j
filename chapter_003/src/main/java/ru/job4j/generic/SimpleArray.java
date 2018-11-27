@@ -54,4 +54,8 @@ public class SimpleArray<T> implements Iterable<T> {
             }
         };
     }
+
+    public int getSize() {
+        return array.length;
+    }
 }
