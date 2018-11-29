@@ -2,11 +2,11 @@ package ru.job4j.generic;
 
 public class AbstractStore<T extends Base> implements Store<T> {
     private int size;
-    private static final int defaultSize = 10;
+    private static final int DEFAULT_SIZE = 10;
     SimpleArray<T> array;
 
-    public AbstractStore(){
-        this(defaultSize);
+    public AbstractStore() {
+        this(DEFAULT_SIZE);
     }
 
     public AbstractStore(int size) {
@@ -43,7 +43,7 @@ public class AbstractStore<T extends Base> implements Store<T> {
     public T findById(String id) {
         T result = null;
         for (T temp : array) {
-            if (temp.getId().equals(id)){
+            if (temp.getId().equals(id)) {
                 result = temp;
                 break;
             }
@@ -54,7 +54,7 @@ public class AbstractStore<T extends Base> implements Store<T> {
     public int getIndex(String id) {
         int index = -1;
         for (int i = 0; i < array.getSize(); i++) {
-            if(array.get(i).getId().equals(id)) {
+            if (array.get(i).getId().equals(id)) {
                 index = i;
                 break;
             }
