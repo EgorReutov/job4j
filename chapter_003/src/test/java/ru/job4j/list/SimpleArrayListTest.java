@@ -29,7 +29,7 @@ public class SimpleArrayListTest {
 
     @Test
     public void deleteFirst() {
-        list.delete(0);
+        list.delete();
         assertThat(list.get(0), is(2));
     }
 }
