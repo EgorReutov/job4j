@@ -3,10 +3,10 @@ package ru.job4j.iterator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class IteratorForArray implements Iterator {
+public class IteratorForArray<E> implements Iterator {
     private final int[][] array;
-    int indexI = 0;
-    int indexJ = 0;
+    private int indexI = 0;
+    private int indexJ = 0;
 
 
     public IteratorForArray(int[][] array) {
