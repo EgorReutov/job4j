@@ -24,7 +24,6 @@ public class DynamicListTest {
         list.add(2);
         list.add(3);
         list.add(4);
-        list.add(5);
         Iterator<Object> iterator = list.iterator();
         assertThat(iterator.hasNext(), is( true));
         assertThat(iterator.next(), is( 1));
@@ -35,8 +34,8 @@ public class DynamicListTest {
         assertThat(iterator.hasNext(), is( true));
         assertThat(iterator.next(), is( 4));
         assertThat(iterator.hasNext(), is( true));
-        assertThat(iterator.next(), is( 5));
-        assertThat(iterator.hasNext(), is( true));
+        iterator.next();
+        assertThat(iterator.hasNext(), is( false));
 
     }
 }
