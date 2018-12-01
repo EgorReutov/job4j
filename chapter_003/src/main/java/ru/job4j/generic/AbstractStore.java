@@ -3,7 +3,7 @@ package ru.job4j.generic;
 public class AbstractStore<T extends Base> implements Store<T> {
     private int size;
     private static final int DEFAULT_SIZE = 10;
-    SimpleArray<T> array;
+    private SimpleArray<T> array;
 
     public AbstractStore() {
         this(DEFAULT_SIZE);
@@ -21,12 +21,13 @@ public class AbstractStore<T extends Base> implements Store<T> {
 
     @Override
     public boolean replace(String id, T model) {
+        boolean result = true;
         int index = getIndex(id);
         if (index == -1) {
-            throw new RuntimeException();
+            result = false;
         }
         array.set(index, model);
-        return true;
+        return result;
     }
 
     @Override
