@@ -10,7 +10,7 @@ public class DynamicList<E> implements Iterable<E> {
     private E[] array = (E[]) new Object[5];
 
     public void add(E object) {
-        if(index == array.length - 1) {
+        if (index == array.length - 1) {
             reSize((array.length * 3) / 2 + 1);
         }
         modCount++;
