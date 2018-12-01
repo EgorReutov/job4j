@@ -31,5 +31,6 @@ public class SimpleArrayListTest {
     public void deleteFirst() {
         list.delete();
         assertThat(list.get(0), is(2));
+        assertThat(list.getSize(), is(2));
     }
 }

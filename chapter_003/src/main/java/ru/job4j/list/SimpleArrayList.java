@@ -18,7 +18,10 @@ public class SimpleArrayList<E> {
      * Реализовать метод удаления первого элемент в списке.
      */
     public E delete() {
-        first = first.next;
+        if (size > 0) {
+            first = first.next;
+            size--;
+        }
         return null;
     }
 
