@@ -23,6 +23,21 @@ public class SimpleLinkedList<E>  implements Iterable<E> {
         this.modCount++;
     }
 
+    public E delete() {
+        Node<E> result = this.first;
+        if (this.first.next != null) {
+            this.first = this.first.next;
+            this.first.previous = null;
+            size--;
+            modCount++;
+        } else {
+            this.first = null;
+            size--;
+            modCount++;
+        }
+        return result.date;
+    }
+
     public E get(int index) {
         if (index > size) {
             throw new IndexOutOfBoundsException("Индекс находится вне размера контейнера");
@@ -32,6 +47,10 @@ public class SimpleLinkedList<E>  implements Iterable<E> {
             result = result.next;
         }
         return result.date;
+    }
+
+    public int getSize() {
+        return this.size;
     }
 
     @Override
