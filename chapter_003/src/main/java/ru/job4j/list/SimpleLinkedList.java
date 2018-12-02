@@ -11,20 +11,22 @@ public class SimpleLinkedList<E>  implements Iterable<E> {
     private int modCount = 0;
 
     public void add(E element) {
-        Node<E> newLink = new Node<>(element);
-        newLink.next = this.first;
-        if (size == 1) {
-            this.last = this.first;
-        }
-        if (size > 0) {
-            this.first.previous = newLink;
-        }
+        final Node<E> tempFirst = first;
+        final Node<E> newLink = new Node<>(null, element, tempFirst);
         this.first = newLink;
+        if (tempFirst == null) {
+            this.last = newLink;
+        } else {
+            tempFirst.previous = newLink;
+        }
         this.size++;
         this.modCount++;
     }
 
     public E get(int index) {
+        if (index > size) {
+            throw new IndexOutOfBoundsException("Индекс находится вне размера контейнера");
+        }
         Node<E> result = this.first;
         for (int i = 0; i < index; i++) {
             result = result.next;
@@ -40,7 +42,7 @@ public class SimpleLinkedList<E>  implements Iterable<E> {
 
             @Override
             public boolean hasNext() {
-                return counter != size;
+                return counter < size;
             }
 
             @Override
@@ -62,8 +64,10 @@ public class SimpleLinkedList<E>  implements Iterable<E> {
         Node<E> next;
         Node<E> previous;
 
-        Node(E date) {
+        Node(Node<E> previous, E date, Node<E> next) {
+            this.previous = previous;
             this.date = date;
+            this.next = next;
         }
     }
 }
