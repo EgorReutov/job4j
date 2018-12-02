@@ -38,6 +38,21 @@ public class SimpleLinkedList<E>  implements Iterable<E> {
         return result.date;
     }
 
+    public E deleteLast() {
+        Node<E> result = this.last;
+        if (this.last.previous != null) {
+            this.last = this.last.previous;
+            this.last.next = null;
+            size--;
+            modCount++;
+         } else {
+            this.last = null;
+            size--;
+            modCount++;
+        }
+        return result.date;
+    }
+
     public E get(int index) {
         if (index > size) {
             throw new IndexOutOfBoundsException("Индекс находится вне размера контейнера");
