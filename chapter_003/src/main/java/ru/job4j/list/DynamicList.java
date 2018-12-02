@@ -9,12 +9,13 @@ public class DynamicList<E> implements Iterable<E> {
     private int modCount = 0;
     private E[] array = (E[]) new Object[5];
 
-    public void add(E object) {
+    public boolean add(E object) {
         if (index == array.length - 1) {
             reSize((array.length * 3) / 2 + 1);
         }
         modCount++;
         array[index++] = object;
+        return true;
     }
 
     public E get(int index) {
