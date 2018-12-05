@@ -5,7 +5,16 @@ import java.util.*;
 public class User {
     private String name;
     private int children;
-    private Calendar birthday;
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return children == user.children &&
+                Objects.equals(name, user.name);
+    }
 
     @Override
     public int hashCode() {
@@ -14,20 +23,9 @@ public class User {
         return result;
     }
 
-    public User(String name, int children, Calendar birthday) {
+    public User(String name, int children) {
         this.name = name;
         this.children = children;
-        this.birthday = birthday;
     }
 
-    public static void main(String[] args) {
-        Calendar calendar = new GregorianCalendar(1997, 01, 9);
-        User first = new User("Egor", 0, calendar);
-        User second = new User("Egor", 0, calendar);
-        Map<User, Object> map = new HashMap<>();
-
-        map.put(first, "first");
-        map.put(second, "second");
-        System.out.println(map);
-    }
 }
