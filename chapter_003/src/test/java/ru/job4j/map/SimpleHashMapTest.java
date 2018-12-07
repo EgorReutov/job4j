@@ -24,7 +24,7 @@ public class SimpleHashMapTest {
         egor = new User("Egor", 0);
         roma = new User("Roma", 2);
 
-        map = new SimpleHashMap<>(5);
+        map = new SimpleHashMap<>();
         map.insert(petr, "Test");
         map.insert(egor, "Test2");
         map.insert(roma, "Test");
@@ -45,11 +45,9 @@ public class SimpleHashMapTest {
     public void whenIteratorTest() {
         Iterator iterator = map.iterator();
         assertTrue(iterator.hasNext());
-        assertThat(iterator.next(), is("Petr 1детей"));
-        assertTrue(iterator.hasNext());
-        assertThat(iterator.next(), is("Egor 0детей"));
-        assertTrue(iterator.hasNext());
-        assertThat(iterator.next(), is("Roma 2детей"));
+        iterator.next();
+        iterator.next();
+        iterator.next();
         assertFalse(iterator.hasNext());
     }
 

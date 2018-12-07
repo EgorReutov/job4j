@@ -5,32 +5,51 @@ import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+import static java.util.Objects.hash;
+
 public class SimpleHashMap<K, V> implements Iterable<SimpleHashMap.Node> {
     private Node[] map;
     private int modCount;
+    private int itemCounter;
     private int size;
+    private int threshold;
+    private double loadFactor;
 
-    public SimpleHashMap(int size) {
-        this.size = size;
-        this.map = new Node[size];
+    public SimpleHashMap() {
+        this.size = 16;
+        this.loadFactor = 0.75;
+        this.threshold = (int) (this.size * loadFactor);
+        this.map = new Node[this.size];
         this.modCount = 0;
     }
 
+
     public boolean insert(K key, V value) {
         boolean result = false;
-        int position = getPosition(key);
-        if (position >= size) {
-            this.size = this.size + position;
-            Node[] tempArray = new Node[size];
-            System.arraycopy(map, 0, tempArray,0, map.length);
-            map = tempArray;
-        }
-        if (map[position] == null) {
-            map[position] = new Node<>(key, value);
-            this.modCount++;
+        int index = getPosition(key);
+        if (map[index] == null) {
+            map[index] = new Node(key, value);
+            modCount++;
+            itemCounter++;
+            if (this.itemCounter == threshold) {
+                refresh();
+            }
             result = true;
         }
         return result;
+    }
+
+    public void refresh() {
+        modCount++;
+        size = size * 2;
+        this.threshold = (int) (this.size * loadFactor);
+        Node<K, V>[] oldMap = this.map;
+        this.map = new Node[this.size];
+        for (Node<K, V> element : oldMap) {
+            if (element != null) {
+                this.map[getPosition(element.key)] = element;
+            }
+        }
     }
 
     public V get(K key) {
@@ -49,46 +68,41 @@ public class SimpleHashMap<K, V> implements Iterable<SimpleHashMap.Node> {
         if (map[position] != null && map[position].key.hashCode() == key.hashCode() && map[position].key.equals(key)) {
             map[position] = null;
             modCount++;
+            itemCounter--;
             result = true;
         }
         return result;
     }
 
     public int getPosition(K key) {
-        return Math.abs((31 * key.hashCode() % 10));
+        return key.hashCode() % size;
     }
 
     @Override
     public Iterator<Node> iterator() {
         return new Iterator<Node>() {
-            int cursor = 0;
-            int expectedModCount = 0;
+            private final int expectedModCount = modCount;
+            private int position;
+            private int innerCount;
 
             @Override
             public boolean hasNext() {
-                boolean result = false;
-                while (this.cursor < map.length) {
-                    if (map[cursor] == null) {
-                        cursor++;
-                        continue;
-                    }
-                    if (map[cursor].getClass().equals(Node.class)) {
-                        result = true;
-                        break;
-                    }
+                if (expectedModCount != modCount) {
+                    throw new ConcurrentModificationException();
                 }
-                return result;
+                return this.innerCount < itemCounter;
             }
 
             @Override
             public Node next() {
-              /*  if (modCount != expectedModCount) {
-                    throw new ConcurrentModificationException("cme");
-                }*/
                 if (!hasNext()) {
-                    throw new NoSuchElementException("nee");
+                    throw new NoSuchElementException();
                 }
-                return map[this.cursor++];
+                while (map[position] == null) {
+                    position++;
+                }
+                innerCount++;
+                return map[position++];
             }
         };
     }
