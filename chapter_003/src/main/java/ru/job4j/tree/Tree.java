@@ -2,7 +2,7 @@ package ru.job4j.tree;
 
 import java.util.*;
 
-public class Tree <E extends Comparable<E>> implements SimpleTree<E>, Iterable<E> {
+public class Tree<E extends Comparable<E>> implements SimpleTree<E>, Iterable<E> {
 
     private Node<E> root;
     private int modCount;
