@@ -6,7 +6,7 @@ import java.nio.ByteBuffer;
 
 public class CheckByteStream {
 
-    public boolean isNumber (InputStream in) throws IOException {
+    public boolean isNumber(InputStream in) throws IOException {
         boolean result = false;
         try {
             byte[] number = new byte[4];

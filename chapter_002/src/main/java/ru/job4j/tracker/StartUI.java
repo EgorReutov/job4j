@@ -7,9 +7,9 @@ public class StartUI {
 
     private final Input input;
 
-    private final Tracker tracker;
+    private final ITracker tracker;
 
-    public StartUI(Input input, Tracker tracker) {
+    public StartUI(Input input, ITracker tracker) {
         this.input = input;
         this.tracker = tracker;
     }
